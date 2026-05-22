@@ -3,190 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว | เด็กชายไตรปิฎก แก้วดอกรัก</title>
+    <title>ประวัติส่วนตัว - น้องปิ่นโต</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Sarabun', sans-serif;
         }
 
         body {
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 480px;
             overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, #4f46e5, #06b6d4);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
+        .profile-card:hover {
+            transform: translateY(-5px);
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
+        .header-bg {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            height: 140px;
+            position: relative;
+        }
+
+        .avatar-container {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            margin-bottom: 15px;
-            background-color: #e5e7eb; /* สีพื้นหลังจำลองกรณีไม่มีรูป */
+            background: #fff;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            color: #4caf50;
         }
 
-        .header h1 {
-            font-size: 2rem;
+        .content {
+            padding: 70px 30px 30px 30px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 1.6rem;
+            color: #2e7d32;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
-        .header p {
+        .nickname {
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 25px;
+            background: #e8f5e9;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
         }
 
-        /* Content Section */
-        .content {
-            padding: 30px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            color: #4f46e5;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Info Grid */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 15px;
+            text-align: left;
         }
 
         .info-item {
-            background: #f8fafc;
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 4px solid #06b6d4;
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border-left: 5px solid #4caf50;
+            transition: all 0.2s ease;
         }
 
-        .info-item strong {
-            color: #1e293b;
-            display: block;
-            font-size: 0.9rem;
-            text-transform: uppercase;
+        .info-item:hover {
+            background: #f1f8e9;
+            transform: translateX(3px);
         }
 
-        /* Lists */
-        ul {
-            list-style-position: inside;
-            padding-left: 10px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Footer */
-        .footer {
+        .info-item i {
+            font-size: 1.3rem;
+            color: #4caf50;
+            margin-right: 15px;
+            width: 25px;
             text-align: center;
-            padding: 20px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #444;
+            margin-right: 8px;
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        .tag {
+            background: #4caf50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
             font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px solid #e5e7eb;
-            background: #f8fafc;
+            margin-right: 5px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <img src="https://via.placeholder.com/150" alt="รูปภาพของ เด็กชายไตรปิฎก แก้วดอกรัก" class="profile-img">
-        <h1>เด็กชายไตรปิฎก แก้วดอกรัก</h1>
-        <p>ยินดีต้อนรับเข้าสู่หน้าประวัติส่วนตัวของผมครับ</p>
-    </div>
-
-    <div class="content">
-        
-        <div class="section">
-            <div class="section-title">ข้อมูลส่วนตัวทั่วไป</div>
-            <div class="info-grid">
-                <div class="info-item">
-                    <strong>ชื่อ-นามสกุล</strong>
-                    เด็กชายไตรปิฎก แก้วดอกรัก
-                </div>
-                <div class="info-item">
-                    <strong>ชื่อเล่น</strong>
-                    [ใส่ชื่อเล่นตรงนี้]
-                </div>
-                <div class="info-item">
-                    <strong>วันเกิด</strong>
-                    [ใส่วัน เดือน ปีเกิด]
-                </div>
-                <div class="info-item">
-                    <strong>สัญชาติ / ศาสนา</strong>
-                    ไทย / พุทธ
+    <div class="profile-card">
+        <div class="header-bg">
+            <div class="avatar-container">
+                <div class="avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <div class="section-title">ประวัติการศึกษา</div>
-            <ul>
-                <li><strong>กำลังศึกษาอยู่ที่:</strong> [ชื่อโรงเรียนปัจจุบัน] ชั้นมัธยมศึกษาปีที่ [ใส่ชั้นปี]</li>
-                <li><strong>ประถมศึกษา:</strong> [ชื่อโรงเรียนเก่า ถ้ามี]</li>
-            </ul>
-        </div>
+        <div class="content">
+            <h1 class="name">ด.ช. ไตรปิฎก แก้วดอกรัก</h1>
+            <p class="nickname">ชื่อเล่น: น้องปิ่นโต</p>
 
-        <div class="section">
-            <div class="section-title">งานอดิเรกและความสนใจ</div>
-            <ul>
-                <li>[ตัวอย่าง: อ่านหนังสือ / เล่นเกม / วาดภาพ]</li>
-                <li>[ตัวอย่าง: เล่นกีฬา เช่น ฟุตบอล หรือ แบดมินตัน]</li>
-                <li>[ตัวอย่าง: ฟังเพลง หรือ เล่นดนตรี]</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="section-title">ช่องทางการติดต่อ</div>
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>อีเมล</strong>
-                    [ใส่户อีเมลของคุณที่นี่ เช่น email@example.com]
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span class="info-label">วันเกิด:</span>
+                    <span class="info-value">3 สิงหาคม 2554</span>
                 </div>
+
                 <div class="info-item">
-                    <strong>เบอร์โทรศัพท์ (ผู้ปกครอง)</strong>
-                    [ใส่เบอร์โทรศัพท์]
+                    <i class="fa-solid fa-palette"></i>
+                    <span class="info-label">สีที่ชอบ:</span>
+                    <span class="info-value" style="color: #2e7d32; font-weight: bold;">
+                        <i class="fa-solid fa-circle" style="font-size: 0.8rem; color: #4caf50; margin-right: 5px;"></i>สีเขียว
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span class="info-label">อาหารที่ชอบ:</span>
+                    <span class="info-value">ทุเรียน <i class="fa-solid fa-heart" style="color: #e91e63; font-size: 0.9rem;"></i></span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span class="info-label">วิชาที่ชอบ:</span>
+                    <span class="info-value">
+                        <span class="tag">คณิตศาสตร์</span>
+                        <span class="tag">ภาษาอังกฤษ</span>
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="info-label">เพื่อนสนิท:</span>
+                    <span class="info-value">เว่น</span>
                 </div>
             </div>
         </div>
-
     </div>
-
-    <div class="footer">
-        <p>© 2026 เว็บไซต์ประวัติส่วนตัว เด็กชายไตรปิฎก แก้วดอกรัก | สร้างสรรค์ด้วยความตั้งใจ</p>
-    </div>
-</div>
 
 </body>
 </html>
