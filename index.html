@@ -13,49 +13,41 @@
             margin: 0;
             padding: 0;
             font-family: 'Sarabun', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #d7ccc8; /* สีพื้นหลังเลียนแบบโต๊ะไม้ */
-            color: #1a3a5f;
+            background-color: #f0f4f8;
+            color: #333333;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
         /* Page Layout & Printing Setup */
         @page {
-            size: A4 landscape; /* ตั้งค่าหน้ากระดาษแนวนอนตามรูปทรงการ์ด */
-            margin: 10mm;
+            size: A4;
+            margin: 15mm 12mm;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: #ebf3f9; /* พื้นหลังสีฟ้าอ่อนของการ์ดชั้นนอก */
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            border: 1px solid #b0bec5;
-            padding: 16px; /* ระยะขอบขาวรอบการ์ดด้านใน */
-        }
-
-        .card-border {
-            border: 1px solid #cfd8dc;
-            border-radius: 20px;
+            max-width: 800px;
+            margin: 20px auto;
             background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
         }
 
         /* Header Accent Banner */
         .header-banner {
-            background: linear-gradient(135deg, #29b6f6 0%, #0288d1 100%);
+            background: linear-gradient(135deg, #0288d1 0%, #005691 100%);
             color: #ffffff;
-            padding: 22px 40px;
+            padding: 30px 40px;
             text-align: center;
+            position: relative;
         }
 
         .header-banner h1 {
-            margin: 0 0 6px 0;
-            font-size: 28px;
+            margin: 0 0 8px 0;
+            font-size: 26px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
@@ -63,13 +55,13 @@
         .header-banner p {
             margin: 0;
             font-size: 16px;
-            opacity: 0.95;
+            opacity: 0.9;
             font-weight: 400;
         }
 
-        /* Layout Table */
+        /* Card Content Grid via Tables for WeasyPrint compatibility */
         .content-body {
-            padding: 35px 40px 40px 40px;
+            padding: 35px 40px;
         }
 
         .layout-table {
@@ -82,152 +74,163 @@
             padding: 0;
         }
 
-        /* แบ่งสัดส่วนฝั่งซ้ายและขวาตามสัดส่วนในรูปภาพ */
         .left-column {
-            width: 50%;
-            padding-right: 20px;
+            width: 35%;
+            padding-right: 30px;
+            border-right: 1px dashed #cfd8dc;
         }
 
         .right-column {
-            width: 50%;
-            padding-left: 20px;
+            width: 65%;
+            padding-left: 30px;
         }
 
-        /* Profile Section (ฝั่งซ้าย) */
-        .profile-container {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .profile-image-cell {
-            width: 170px;
+        /* Component Styles */
+        .profile-avatar-box {
             text-align: center;
-            vertical-align: top;
+            margin-bottom: 25px;
+            background-color: #f5f9fc;
+            padding: 25px 15px;
+            border-radius: 12px;
+            border: 1px solid #e1f5fe;
         }
 
-        /* วงกลมล้อมรอบรูปภาพโปรไฟล์หมู */
-        .profile-image-wrapper {
-            width: 155px;
-            height: 155px;
+        .avatar-placeholder {
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 4px solid #90caf9;
-            padding: 2px;
-            background-color: #ffffff;
-            display: inline-block;
+            background-color: #b3e5fc;
+            color: #0288d1;
+            font-size: 40px;
+            line-height: 110px;
+            margin: 0 auto 15px auto;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px rgba(25px,25px,25px,0.1);
+            overflow: hidden; /* เพิ่มเพื่อให้รูปที่อยู่ข้างในตัดขอบเป็นทรงกลมตามวงกลม */
         }
 
-        .profile-image {
+        /* สไตล์สำหรับรูปภาพโปรไฟล์ข้างในวงกลม */
+        .avatar-placeholder img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
-        }
-
-        .profile-name-box {
-            text-align: center;
-            padding-top: 15px;
-            padding-right: 10px;
+            display: block;
         }
 
         .profile-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
-            color: #000000;
+            color: #005691;
             margin: 0 0 5px 0;
         }
 
         .profile-subtitle {
-            font-size: 18px;
-            color: #000000;
+            font-size: 14px;
+            color: #666666;
             margin: 0;
-            font-weight: 500;
         }
 
-        /* General Info (ข้อมูลข้อความข้างรูปหมู) */
-        .general-info-cell {
-            vertical-align: top;
-            padding-left: 15px;
-            padding-top: 5px;
-        }
-
-        .section-title-blue {
-            font-size: 18px;
+        .section-title {
+            font-size: 15px;
             font-weight: 700;
-            color: #0288d1;
-            margin: 0 0 12px 0;
+            color: #005691;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #b3e5fc;
+            letter-spacing: 0.5px;
+        }
+
+        .info-list {
+            margin-bottom: 30px;
         }
 
         .info-item {
-            margin-bottom: 10px;
-            font-size: 16px;
-            line-height: 1.4;
-            color: #000000;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .info-label {
+            color: #666666;
             font-weight: bold;
-            color: #000000;
             display: inline-block;
+            width: 95px;
         }
 
-        /* Right Column Component Styles (ฝั่งขวา) */
-        .right-section {
-            margin-bottom: 20px;
+        .info-value {
+            color: #2c3e50;
         }
 
-        .section-title-right {
-            font-size: 18px;
-            font-weight: 700;
-            color: #0288d1;
-            margin: 0 0 6px 0;
+        /* Specific section lists */
+        .grid-info {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
         }
 
-        .text-content {
-            font-size: 16px;
-            color: #000000;
-            line-height: 1.5;
-            margin: 0;
+        .grid-info td {
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f4f8;
         }
 
-        /* Friendship Tags (ปุ่มวงรีสีน้ำเงิน) */
+        /* Pills / Tags */
         .tag-container {
-            margin-top: 6px;
+            margin-top: 5px;
+            margin-bottom: 20px;
         }
 
         .tag {
             display: inline-block;
-            background-color: #0288d1;
-            color: #ffffff;
-            padding: 4px 14px;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-right: 4px;
-            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #b3e5fc;
         }
 
-        /* Motto Box (กล่องด้านล่างสุด) */
+        .tag.secondary {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-color: #c8e6c9;
+        }
+
+        .tag.accent {
+            background-color: #fff3e0;
+            color: #ef6c00;
+            border-color: #ffe0b2;
+        }
+
+        /* Motto Box */
         .motto-box {
-            border: 1px solid #0288d1;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-top: 25px;
-            width: 100%;
+            background: linear-gradient(to right, #f5f9fc, #e1f5fe);
+            border-left: 4px solid #0288d1;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 30px;
+            text-align: center;
         }
 
-        .motto-header {
-            background-color: #0288d1;
-            color: #ffffff;
-            padding: 6px 12px;
-            font-size: 15px;
+        .motto-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #0288d1;
             font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
-        .motto-body {
-            background-color: #ffffff;
-            padding: 12px;
+        .motto-text {
             font-size: 15px;
-            color: #000000;
+            font-style: italic;
+            color: #005691;
+            font-weight: bold;
+            margin: 0;
         }
 
         /* Print Media Overrides */
@@ -240,8 +243,6 @@
                 border: none;
                 box-shadow: none;
                 width: 100%;
-                max-width: 100%;
-                padding: 0;
             }
         }
     </style>
@@ -249,72 +250,86 @@
 <body>
 
 <div class="container">
-    <div class="card-border">
-        <div class="header-banner">
-            <h1>บัตรประวัติส่วนตัวนักเรียน</h1>
-            <p>โรงเรียนจอมทอง &bull; ระดับชั้นมัธยมศึกษาปีที่ 3</p>
-        </div>
+    <div class="header-banner">
+        <h1>บัตรประวัติส่วนตัวนักเรียน</h1>
+        <p>โรงเรียนจอมทอง &bull; ระดับชั้นมัธยมศึกษาปีที่ 3</p>
+    </div>
 
-        <div class="content-body">
-            <table class="layout-table">
-                <tr>
-                    <td class="left-column">
-                        <table class="profile-container">
-                            <tr>
-                                <td class="profile-image-cell">
-                                    <div class="profile-image-wrapper">
-                                        <img class="profile-image" src="https://img.pikbest.com/png-images/qiantu/q-version-cute-cartoon-cute-little-animal-zodiac-pig_2721353.png!sw800" alt="รูปโปรไฟล์">
-                                    </div>
-                                    <div class="profile-name-box">
-                                        <h2 class="profile-title">ด.ช.ไตรปิฏก</h2>
-                                        <p class="profile-subtitle">แก้วดอกรัก (ปิ่นโต)</p>
-                                    </div>
-                                </td>
-                                
-                                <td class="general-info-cell">
-                                    <h3 class="section-title-blue">General Info</h3>
-                                    <div class="info-item"><span class="info-label">วันเกิด:</span> 03/08/2554</div>
-                                    <div class="info-item"><span class="info-label">เพศ:</span> ชาย</div>
-                                    <div class="info-item"><span class="info-label">หมู่เลือด:</span> A</div>
-                                    <div class="info-item"><span class="info-label">ราศี:</span> สิงห์</div>
-                                    <div class="info-item"><span class="info-label">ภูมิลำเนา:</span> เชียงใหม่</div>
-                                    <div class="info-item"><span class="info-label">ส่วนสูง:</span> 165 ซม.</div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-
-                    <td class="right-column">
-                        <div class="right-section">
-                            <h3 class="section-title-right">Academic Info</h3>
-                            <p class="text-content">ต่อเรียนจอมทอง 2554<br>ระดับชั้นมัธยมศึกษาปีที่ 3</p>
+    <div class="content-body">
+        <table class="layout-table">
+            <tr>
+                <td class="left-column">
+                    <div class="profile-avatar-box">
+                        <div class="avatar-placeholder">
+                            <img src="https://img.pikbest.com/png-images/qiantu/q-version-cute-cartoon-cute-little-animal-zodiac-pig_2721353.png!sw800" alt="รูปโปรไฟล์นักเรียน">
                         </div>
+                        <h2 class="profile-title">ด.ช.ไตรปิฏก</h2>
+                        <p class="profile-subtitle">แก้วดอกรัก (ปิ่นโต)</p>
+                    </div>
 
-                        <div class="right-section">
-                            <h3 class="section-title-right">Lifestyle</h3>
-                            <p class="text-content">เล่นหรือ, หาชป, ควมเวุก</p>
-                        </div>
+                    <h3 class="section-title">ข้อมูลทั่วไป</h3>
+                    <div class="info-list">
+                        <div class="info-item"><span class="info-label">วันเกิด:</span><span class="info-value">03/08/2554</span></div>
+                        <div class="info-item"><span class="info-label">เพศ:</span><span class="info-value">ชาย</span></div>
+                        <div class="info-item"><span class="info-label">หมู่เลือด:</span><span class="info-value">A</span></div>
+                        <div class="info-item"><span class="info-label">ราศี:</span><span class="info-value">สิงห์</span></div>
+                        <div class="info-item"><span class="info-label">ภูมิลำเนา:</span><span class="info-value">เชียงใหม่</span></div>
+                        <div class="info-item"><span class="info-label">ส่วนสูง:</span><span class="info-value">165 ซม.</span></div>
+                    </div>
 
-                        <div class="right-section">
-                            <h3 class="section-title-right">Friendship Tags</h3>
-                            <div class="tag-container">
-                                <span class="tag">เล่นตะกร้อ</span>
-                                <span class="tag">เว่น</span>
-                                <span class="tag">มิว</span>
-                                <span class="tag">โร</span>
-                                <span class="tag">ตี้</span>
-                                <span class="tag">คุ้ม</span>
-                            </div>
-                        </div>
+                    <h3 class="section-title">ทักษะความสามารถ</h3>
+                    <div class="tag-container">
+                        <span class="tag">เล่นตะกร้อ</span>
+                    </div>
+                </td>
 
-                        <div class="motto-box">
-                            <div class="motto-header">Motto Box</div>
-                            <div class="motto-body">ช้าหน่อยไม่เป็นไร ขอแค่งดเดิน</div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                <td class="right-column">
+                    <h3 class="section-title">ข้อมูลการเรียนและกิจกรรม</h3>
+                    <table class="grid-info">
+                        <tr>
+                            <td style="width: 50%;"><strong>วิชาที่ชอบ:</strong> <span style="color: #2e7d32;">วิทยาศาสตร์</span></td>
+                            <td style="width: 50%;"><strong>วิชาที่ยาก:</strong> <span style="color: #c62828;">อังกฤษ</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ชมรม/กิจกรรม:</strong> หุ่นยนต์</td>
+                            <td><strong>งานอดิเรก:</strong> นักเรียน</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>ความฝัน / อาชีพที่อยากเป็น:</strong> นักสาธารณสุข</td>
+                        </tr>
+                    </table>
+
+                    <h3 class="section-title">ไลฟ์สไตล์และความชอบ</h3>
+                    <table class="grid-info">
+                        <tr>
+                            <td style="width: 50%;"><strong>กีฬา:</strong> ตะกร้อ</td>
+                            <td style="width: 50%;"><strong>อาหารโปรด:</strong> ทุเรียน</td>
+                        </tr>
+                        <tr>
+                            <td><strong>สีที่ชอบ:</strong> เขียว</td>
+                            <td><strong>เพลงที่ชอบ:</strong> ฮิปฮอป</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>ซีรีส์ / อนิเมะ:</strong> โดเรม่อน</td>
+                        </tr>
+                    </table>
+
+                    <h3 class="section-title">มิตรภาพ</h3>
+                    <div class="tag-container">
+                        <span class="tag secondary">เว่น</span>
+                        <span class="tag secondary">มิว</span>
+                        <span class="tag secondary">โร</span>
+                        <span class="tag secondary">ตี้</span>
+                        <span class="tag secondary">คุ้ม</span>
+                    </div>
+
+                    <div class="motto-box">
+                        <div class="motto-title">คติประจำใจ</div>
+                        <p class="motto-text">"ช้าหน่อยไม่เป็นไร ขอแค่ไม่หยุดเดิน"</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 
