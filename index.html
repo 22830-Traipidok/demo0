@@ -21,7 +21,7 @@
 
         /* Page Layout & Printing Setup */
         @page {
-            size: A4 landscape; /* ปรับเป็นแนวนอนเพื่อให้เหมาะกับทรงของการ์ด */
+            size: A4 landscape; /* ตั้งค่าหน้ากระดาษแนวนอนตามรูปทรงการ์ด */
             margin: 10mm;
         }
 
@@ -29,26 +29,27 @@
             width: 100%;
             max-width: 900px;
             margin: 40px auto;
-            background-color: #ebf3f9; /* สีพื้นหลังของการ์ดด้านใน */
+            background-color: #ebf3f9; /* พื้นหลังสีฟ้าอ่อนของการ์ดชั้นนอก */
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             border: 1px solid #b0bec5;
-            padding: 2px;
+            padding: 16px; /* ระยะขอบขาวรอบการ์ดด้านใน */
         }
 
         .card-border {
             border: 1px solid #cfd8dc;
-            border-radius: 22px;
+            border-radius: 20px;
             background-color: #ffffff;
             overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
         }
 
         /* Header Accent Banner */
         .header-banner {
             background: linear-gradient(135deg, #29b6f6 0%, #0288d1 100%);
             color: #ffffff;
-            padding: 20px 40px;
+            padding: 22px 40px;
             text-align: center;
         }
 
@@ -68,7 +69,7 @@
 
         /* Layout Table */
         .content-body {
-            padding: 30px 40px;
+            padding: 35px 40px 40px 40px;
         }
 
         .layout-table {
@@ -81,36 +82,36 @@
             padding: 0;
         }
 
-        /* แบ่งสัดส่วนคอลัมน์ซ้าย-ขวา */
+        /* แบ่งสัดส่วนฝั่งซ้ายและขวาตามสัดส่วนในรูปภาพ */
         .left-column {
-            width: 52%;
-            padding-right: 25px;
+            width: 50%;
+            padding-right: 20px;
         }
 
         .right-column {
-            width: 48%;
-            padding-left: 25px;
+            width: 50%;
+            padding-left: 20px;
         }
 
         /* Profile Section (ฝั่งซ้าย) */
         .profile-container {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
         }
 
         .profile-image-cell {
-            width: 160px;
+            width: 170px;
             text-align: center;
             vertical-align: top;
         }
 
+        /* วงกลมล้อมรอบรูปภาพโปรไฟล์หมู */
         .profile-image-wrapper {
-            width: 150px;
-            height: 150px;
+            width: 155px;
+            height: 155px;
             border-radius: 50%;
             border: 4px solid #90caf9;
-            padding: 4px;
+            padding: 2px;
             background-color: #ffffff;
             display: inline-block;
         }
@@ -125,105 +126,107 @@
         .profile-name-box {
             text-align: center;
             padding-top: 15px;
-            padding-right: 15px;
+            padding-right: 10px;
         }
 
         .profile-title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            color: #01579b;
+            color: #000000;
             margin: 0 0 5px 0;
         }
 
         .profile-subtitle {
-            font-size: 16px;
-            color: #37474f;
+            font-size: 18px;
+            color: #000000;
             margin: 0;
-            font-weight: bold;
+            font-weight: 500;
         }
 
-        /* General Info (ถัดจากรูปโปรไฟล์) */
+        /* General Info (ข้อมูลข้อความข้างรูปหมู) */
         .general-info-cell {
             vertical-align: top;
-            padding-left: 20px;
+            padding-left: 15px;
+            padding-top: 5px;
         }
 
         .section-title-blue {
             font-size: 18px;
             font-weight: 700;
-            color: #0277bd;
+            color: #0288d1;
             margin: 0 0 12px 0;
         }
 
         .info-item {
-            margin-bottom: 8px;
-            font-size: 15px;
+            margin-bottom: 10px;
+            font-size: 16px;
             line-height: 1.4;
             color: #000000;
         }
 
         .info-label {
             font-weight: bold;
-            color: #263238;
+            color: #000000;
             display: inline-block;
         }
 
         /* Right Column Component Styles (ฝั่งขวา) */
         .right-section {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .section-title-right {
             font-size: 18px;
             font-weight: 700;
-            color: #0277bd;
-            margin: 0 0 8px 0;
+            color: #0288d1;
+            margin: 0 0 6px 0;
         }
 
         .text-content {
-            font-size: 15px;
+            font-size: 16px;
             color: #000000;
             line-height: 1.5;
             margin: 0;
         }
 
-        /* Friendship Tags */
+        /* Friendship Tags (ปุ่มวงรีสีน้ำเงิน) */
         .tag-container {
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .tag {
             display: inline-block;
             background-color: #0288d1;
             color: #ffffff;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: bold;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
             margin-right: 4px;
             margin-bottom: 6px;
         }
 
-        /* Motto Box */
+        /* Motto Box (กล่องด้านล่างสุด) */
         .motto-box {
             border: 1px solid #0288d1;
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
-            margin-top: 15px;
+            margin-top: 25px;
+            width: 100%;
         }
 
         .motto-header {
             background-color: #0288d1;
             color: #ffffff;
             padding: 6px 12px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
         }
 
         .motto-body {
             background-color: #ffffff;
-            padding: 10px 12px;
-            font-size: 14px;
+            padding: 12px;
+            font-size: 15px;
             color: #000000;
         }
 
@@ -238,6 +241,7 @@
                 box-shadow: none;
                 width: 100%;
                 max-width: 100%;
+                padding: 0;
             }
         }
     </style>
@@ -248,7 +252,7 @@
     <div class="card-border">
         <div class="header-banner">
             <h1>บัตรประวัติส่วนตัวนักเรียน</h1>
-            <p>โรงเรียนจอมทอง &bull; ระดับชั้นมัยมศึกษาปีที่ 3</p>
+            <p>โรงเรียนจอมทอง &bull; ระดับชั้นมัธยมศึกษาปีที่ 3</p>
         </div>
 
         <div class="content-body">
